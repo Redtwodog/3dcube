@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+	#pageplace{
+		position: relative;
+		width: 1000px;
+		height: 500px;
+		margin: 10px auto;
+		padding-top: 100px;
+		perspective:800px;
+		transform-style:preserve-3d;
+		transform: rotateY(15deg) rotateX(0deg) rotateZ(0deg);
+	}
+	.zheng{
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		border: 2px solid #000;
+		left: 400px;
+		top:200px;
+		font-family: "微软雅黑";
+		font-size: 3em;
+		line-height: 200px;
+		text-align: center;
+	}
+	#page1{
+		color:#F70A14;
+	}
+	#page2{
+		transform-origin: left;
+		transform: rotateY(-90deg);
+		color:#F90EAF;
+	}
+	#page3{
+		color:#830FC9;
+		transform-origin: right;
+		transform: rotateY(90deg);
+	}
+	#page4{
+		color:#14719B;
+		transform-origin: top;
+		transform: rotateX(90deg);
+	}
+	#page5{
+		color:#47C914;
+		transform-origin: bottom;
+		transform: rotateX(-90deg);
+	}
+	#page6{
+		color:#EF8C0A;
+		transform: translateZ(204px);
+	}
+	.control{
+		width: 400px;
+	}
+</style>
+</head>
+<body>
+<div id="pageplace">
+		<div class="zheng" id="page1">1</div>
+		<div class="zheng" id="page2">2</div>
+		<div class="zheng" id="page3">3</div>
+		<div class="zheng" id="page4">4</div>
+		<div class="zheng" id="page5">5</div>
+		<div class="zheng" id="page6">6</div>
+</div>
+	<input type="range" max="180" min="1" value="0"class="control" id="con1">
+	<input type="range" max="180" min="1" value="15"class="control" id="con2">
+	<input type="range" max="180" min="1" value="0"class="control" id="con3">
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var con1=$("#con1");
+		var con2=$("#con2");
+		var con3=$("#con3");
+		var pageplace=$("#pageplace");
+		$(con1).change(function(){
+			var me=$(this).val();
+			$(pageplace).css({"transform":"rotateX("+me+"deg)"});
+		});
+		$(con2).change(function(){
+			var me2=$(this).val();
+			$(pageplace).css({"transform":"rotateY("+me2+"deg)"});
+		});
+		$(con3).change(function(){
+			var me3=$(this).val();
+			$(pageplace).css({"transform":"rotateZ("+me3+"deg)"});
+		})
+	});
+</script>
+</body>
+</html>
